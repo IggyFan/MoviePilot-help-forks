@@ -140,6 +140,7 @@ services:
             # 电视剧重命名格式
             - 'TV_RENAME_FORMAT={{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}'
         restart: always
+        stdin_open: true
         tty: true
         volumes:
             - './moviepilot/config:/config'
@@ -160,6 +161,7 @@ services:
         container_name: cookiecloud
         hostname: cookiecloud
         restart: always
+        stdin_open: true
         tty: true
         networks:
             - moviepilot
@@ -203,6 +205,8 @@ services:
         # devices:
         #     - '/dev/dri:/dev/dri'
         restart: always
+        stdin_open: true
+        tty: true
         hostname: emby
         networks:
             - moviepilot
@@ -216,6 +220,7 @@ services:
         image: 'nevinee/qbittorrent:latest'
         container_name: qbittorrent
         restart: always
+        stdin_open: true
         tty: true
         hostname: qbittorrent
         volumes:

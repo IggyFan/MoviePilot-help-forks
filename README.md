@@ -293,6 +293,7 @@ services:
             # 电视剧重命名格式
             - 'TV_RENAME_FORMAT={{title}}{% if year %} ({{year}}){% endif %}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode %} - 第 {{episode}} 集{% endif %}{{fileExt}}'
         restart: always
+        stdin_open: true
         tty: true
         volumes:
             - './moviepilot/config:/config'
@@ -442,6 +443,8 @@ services:
             options:
                 max-size: 5m
         restart: always
+        stdin_open: true
+        tty: true
         image: 'jxxghp/moviepilot-ocr:latest'
 ```
 
@@ -489,6 +492,8 @@ services:
             - UMASK=022
         volumes:
             - '/your/moviepilot/dir:/downloads'
+        stdin_open: true
+        tty: true
         image: 'ddsderek/moviepilot:playwright'
 ```
 
